@@ -3,9 +3,6 @@ define(function(require) {
   var Origin = require('coreJS/app/origin');
   var SuperToolbarView = require('./views/superToolbarView.js');
 
-  // locations
-  require('./locations/assetManagement.js');
-
   Origin.on('superToolbar:add', function(buttons) {
     if (Origin.permissions.hasPermissions(["*/*:create","*/*:read","*/*:update","*/*:delete"])) {
       remove(); // clean up old instances first
