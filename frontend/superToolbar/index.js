@@ -1,7 +1,7 @@
 // LICENCE https://github.com/adaptlearning/adapt_authoring/blob/master/LICENSE
 define(function(require) {
-  var Origin = require('coreJS/app/origin');
-  var SuperToolbarView = require('./views/superToolbarView.js');
+  var Origin = require('core/origin');
+  var SuperToolbarView = require('./views/superToolbarView');
 
   Origin.on('superToolbar:add', function(buttons) {
     if (Origin.permissions.hasPermissions(["*/*:create","*/*:read","*/*:update","*/*:delete"])) {
@@ -14,7 +14,7 @@ define(function(require) {
     else remove();
   });
   // make sure it's not left for non-admins
-  Origin.on('app:dataReady login:changed', remove);
+  Origin.on('origin:dataReady login:changed', remove);
 
   function remove() {
     $('.location-title > .superToolbar').remove();
